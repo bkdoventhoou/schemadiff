@@ -22,6 +22,11 @@ class ReportSummary:
             "modified_tables": self.modified_tables,
         }
 
+    @property
+    def has_changes(self) -> bool:
+        """Return True if the summary contains any changes."""
+        return self.total_changes > 0
+
 
 def build_report(diff: SchemaDiff, label: Optional[str] = None) -> ReportSummary:
     """Build a ReportSummary from a SchemaDiff."""
